@@ -1,0 +1,46 @@
+## Visual Studio
+bin/
+obj/
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## VS Code
+.vscode/
+
+## Rider
+.idea/
+
+## User-specific
+*.rsuser
+*.csproj.user
+
+## Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+
+## Database
+*.mdf
+*.ldf
+App_Data/
+
+## NuGet
+.nuget/
+*.nupkg
+packages/
+
+## Node.js
+node_modules/
+npm-debug.log*
