@@ -68,14 +68,14 @@ public class Comment
         DateTime createdAt,
         DateTime? updatedAt,
         DateTime? deletedAt,
-        string? userName = null,
+        string? UserName = null,
         string? userAvatarUrl = null)
     {
         return new Comment(id, content, taskId, userId, createdAt)
         {
             UpdatedAt = updatedAt,
             DeletedAt = deletedAt,
-            UserName = userName,
+            UserName = UserName,
             UserAvatarUrl = userAvatarUrl
         };
     }

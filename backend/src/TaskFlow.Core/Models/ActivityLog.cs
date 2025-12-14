@@ -184,7 +184,7 @@ public class ActivityLog
         string description,
         Dictionary<string, object> metadata,
         DateTime createdAt,
-        string? userName = null,
+        string? UserName = null,
         string? userAvatarUrl = null,
         string? taskTitle = null,
         string? columnTitle = null)
@@ -193,7 +193,7 @@ public class ActivityLog
         {
             UserId = userId,
             Metadata = metadata ?? new Dictionary<string, object>(),
-            UserName = userName,
+            UserName = UserName,
             UserAvatarUrl = userAvatarUrl,
             TaskTitle = taskTitle,
             ColumnTitle = columnTitle

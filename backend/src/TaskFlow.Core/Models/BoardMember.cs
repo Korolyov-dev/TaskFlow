@@ -43,13 +43,13 @@ public class BoardMember
         Guid userId,
         BoardRole role,
         DateTime joinedAt,
-        string? userName = null,
+        string? UserName = null,
         string? userEmail = null,
         string? userAvatarUrl = null)
     {
         return new BoardMember(boardId, userId, role, joinedAt)
         {
-            UserName = userName,
+            UserName = UserName,
             UserEmail = userEmail,
             UserAvatarUrl = userAvatarUrl
         };
