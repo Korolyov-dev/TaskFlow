@@ -1,5 +1,4 @@
-﻿// TaskFlow.Core/Models/Comment.cs
-using TaskFlow.Core.Common;
+﻿using TaskFlow.Core.Common;
 
 namespace TaskFlow.Core.Models;
 
