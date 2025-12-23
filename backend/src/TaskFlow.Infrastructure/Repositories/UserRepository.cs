@@ -35,7 +35,7 @@ public class UserRepository : BaseRepository<User, UserEntity>, IUserRepository
         return await _dbSet.AnyAsync(u => u.Email == email, cancellationToken);
     }
 
-    public async Task<bool> UsernameExistsAsync(string userName, CancellationToken cancellationToken = default)
+    public async Task<bool> UserNameExistsAsync(string userName, CancellationToken cancellationToken = default)
     {
         return await _dbSet.AnyAsync(u => u.UserName == userName, cancellationToken);
     }
