@@ -31,17 +31,32 @@ public class ActivityLogEntityConfiguration : IEntityTypeConfiguration<ActivityL
             .HasColumnName("description")
             .IsRequired();
 
-        builder.Property(al => al.Metadata)
-            .HasColumnName("metadata")
-            .HasColumnType("jsonb") // Для PostgreSQL
-            .HasDefaultValue("{}");
+     
 
         builder.Property(al => al.CreatedAt)
             .HasColumnName("created_at")
             .IsRequired();
+        builder.Property(al => al.RelatedTaskId)
+           .HasColumnName("related_task_id")
+           .IsRequired();
+        builder.Property(al => al.RelatedColumnId)
+            .HasColumnName("related_column_id")
+            .IsRequired();
+        builder.Property(al => al.RelatedUserId)
+                .HasColumnName("related_user_id")
+                .IsRequired();
+        builder.Property(al => al.OldValue)
+            .HasColumnName("old_value")
+            .IsRequired();
+        builder.Property(al => al.NewValue)
+           .HasColumnName("new_value")
+           .IsRequired();
+  builder.Property(al => al.OldValue)
+            .HasColumnName("old_value ")
+            .IsRequired();
 
-        // Внешние ключи
-        builder.HasOne<BoardEntity>()
+    // Внешние ключи
+    builder.HasOne<BoardEntity>()
             .WithMany()
             .HasForeignKey(al => al.BoardId)
             .OnDelete(DeleteBehavior.Cascade);

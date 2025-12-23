@@ -1,5 +1,4 @@
-﻿// TaskFlow.Core/Models/TaskItem.cs
-using TaskFlow.Core.Common;
+﻿using TaskFlow.Core.Common;
 using TaskFlow.Core.Enums;
 
 namespace TaskFlow.Core.Models;
@@ -222,6 +221,32 @@ public class TaskItem
         }
     }
 
+    public void AddLabelById(Guid labelId)
+    {
+        if (labelId == Guid.Empty)
+            throw new DomainException("Label ID cannot be empty");
+
+        var taskLabel = TaskLabel.Create(Id, labelId);
+
+        if (!_taskLabels.Contains(taskLabel))
+        {
+            _taskLabels.Add(taskLabel);
+            UpdatedAt = DateTime.UtcNow;
+        }
+    }
+
+    // Метод для получения ID меток
+    public IEnumerable<Guid> GetLabelIds()
+    {
+        return _taskLabels.Select(tl => tl.LabelId);
+    }
+
+    // Метод для проверки наличия метки
+    public bool HasLabel(Guid labelId)
+    {
+        return _taskLabels.Any(tl => tl.LabelId == labelId);
+    }
+
     public void RemoveLabel(Guid labelId)
     {
         var taskLabel = _taskLabels.FirstOrDefault(tl => tl.LabelId == labelId);
@@ -231,17 +256,6 @@ public class TaskItem
             UpdatedAt = DateTime.UtcNow;
         }
     }
-
-    public bool HasLabel(Guid labelId)
-    {
-        return _taskLabels.Any(tl => tl.LabelId == labelId);
-    }
-
-    public IEnumerable<Guid> GetLabelIds()
-    {
-        return _taskLabels.Select(tl => tl.LabelId);
-    }
-
     public void ClearLabels()
     {
         if (_taskLabels.Count > 0)
